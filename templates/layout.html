@@ -7,35 +7,47 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400i|Oswald|Raleway|Roboto&display=swap" rel="stylesheet"> 
 
   <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:400i|Oswald|Raleway:400,500|Roboto&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+  <link rel='stylesheet' href='static/ho.css'>
   <style>
     body{
     background-image:url('static/se.jpg');
     color:red;
     font-family:'Raleway';
+    display:flexbox;
 
+    }
+    .hide{
+      visibility: hidden;
     }
   
   </style>
 </head>
 <body style="text-align:center">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="/blogs">BLogs</a>
+  <a class="navbar-brand" href="/">BLogs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav" style="color:azure">
     <ul class="navbar-nav">
+      
       <li class="nav-item active">
         <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/register">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/login">Login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
+        <a class="nav-link" href="/download">Select File For Analysis</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/logout">Logout</a>
       </li>
     </ul>
@@ -49,19 +61,10 @@
     </div>
   </div>
 </div>
-<script>
-  function norm(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $('#blah')
-        .attr('src', e.target.result)
-        .width(150)
-        .height(200);
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-}
+<script type='text/javascript'>
+  document.querySelector('#delete').addEventListener('click',()=>{
+        
+  })
 </script>
 
 

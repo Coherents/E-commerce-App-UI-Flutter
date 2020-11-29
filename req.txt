@@ -1,0 +1,1 @@
+postgresql://postgres:Aezakmi@1@localhost:5432/auth

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<center>
+	<div style="font-family: Roboto;position: relative;top:200px;">
+	<h1> Login TO YOUR ACCOUNT</h1><br><br><hr>
+	<form action="" method="Post">
+		<p>{{form.hidden_tag()}}
+		<div class="form-group">
+		{{form.email.label}}
+		<p class="form-control-md">{{form.email(size=60,placeholder="Email")}}</p><br><br>
+		</div>
+		<div class="form-group">
+		{{form.password.label}}
+		<p class="form-control-md">{{form.password(size=60,placeholder="password")}}</p><br><br>
+		</div>
+		<p class="btn btn-primary">{{form.submit()}}</p>
+		
+	</form>
+</div>
+	 
+
+</center>
+</body>
+{% endblock %}

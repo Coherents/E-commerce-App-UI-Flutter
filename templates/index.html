@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<center>
+	{% if name %}
+	<h1 style="position: relative;top:360px;">WELCOME TO <span style="color:azure;font-style: italic;font-size:23px;">POLARoID </h1>
+	<h2 style="position:relative;top:360px;">Stat Server</h2>
+	<h2 style="position: relative;top:360px;">Welcome Mr. {{name}}</h2>
+	
+	{% else %}
+	<h1 style="position: relative;top:360px;"> Welcome But you are not Authorized</h1>
+	{% endif %}
+</center>
+</body>
+
+{% endblock %}

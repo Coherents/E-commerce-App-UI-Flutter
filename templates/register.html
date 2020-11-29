@@ -1,0 +1,31 @@
+  
+{% extends 'layout.html' %}
+{% block content %}
+<center>
+	<div style="position: relative;top:200px;">
+	<h1 style="font-family: Roboto"> REGISTER TO OUR ACCOUNT</h1><br><br><hr>
+	<form action="" method="Post" enctype="multipart/form-data">
+		
+		<p>{{form.hidden_tag()}}
+		<div class="form-group">
+		<label>{{form.username.label}}</label>
+		<p class="form-control-sm">{{form.username(size=100,placeholder="name")}}</p><br><br>
+		</div>
+		<div class="form-group">
+		<label>{{form.email.label}}</label>
+		<p class="form-control-sm">{{form.email(size=100,placeholder="Email")}}</p><br><br>
+		</div>
+		<div class="form-group">
+		<label>{{form.password.label}}</label>
+		<p class="form-control-sm">{{form.password(size=100,placeholder="password")}}</p><br><br>
+		</div>
+		<label>{{form.file.label}}</label>
+		<p class="form-control-sm">{{form.file()}}</p><br><br>
+		<button class="btn btn-primary">{{form.submit()}}</button>
+	</div>
+	 
+{% endblock %}
+
+</center>
+</body>
+</html>

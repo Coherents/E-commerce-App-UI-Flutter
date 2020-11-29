@@ -1,0 +1,36 @@
+.con{
+        text-align: center;
+        position:relative;
+        top:200px;
+        left:300px;
+
+}
+.cat{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 35px;
+        color:crimpson;
+}
+.res{
+        color:orange;
+        font-size: 16px;
+        font-weight: 300px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.uty{
+        color:darkslategray;
+        font-size:13px;
+        font-weight:800px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.okayish{
+        text-align:center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        position:relative;
+        top:298px;
+}
+.left{
+        display:flex;
+        position:relative;
+        left:700px;
+        bottom:300px;
+}

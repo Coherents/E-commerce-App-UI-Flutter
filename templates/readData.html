@@ -1,32 +1,75 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div class="container">
-        <div class="row">
-                <div class="col-xs-12">
-                <form action="/hola" method="POST">
-                <lable> Category name</lable>
-                <input type="text" name="category_text">
-                <button type="submit" class="btn btn-primary">Add Category</button>
-                </form>  
-        </div>
+        <div class="container">
+                <div class="row">
+                        <div class="col-xs-12">
+                                <form action="/hola" method="POST">
+                        <div class='form-group'>
+                        <label><h2 class='cat'>Enter Category Name</h2></label>
+                        <input type="text" class='form-control input-sm' name="category_text"><br>
+                        <button type="submit" class="btn btn-success">Add Category</button>
+                        </div>
+                        </form>
+                        <div class="scroll-area">
+                        <ul class='list-group list-group-flush' style="list-style-type: none;">
+                                {% for i,j in enumerate(List)  %}
+                                        <li style="color:rgb(0, 255, 13); font-size:21px;font-weight:900px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;position:relative;right:120px;">{{i+1}}.{{j}}</li>
+                                        <h4 class='items' style="position:relative;right:120px;"> Items</h4>
+                                        <div id="lp" style="border-color:rgb(20, 36, 36);border-width:2px;border-style:solid;overflow:scroll; height:100px;">
+                                        
+                                        <ol class='list-group'>
+                                        {% for ope in D[j] %}
+                                        
+                                        <div>
+                
+                                              <button type="button" style="color:rgb(0, 251, 255);font-weight:900;"  id ="delete" class='btn bg-transparent' data-toggle="modal" data-target="#exampleModal">
+                                                         {{ope[0]}}<button class="btn btn-danger">Delete Item</button><br>
+                                                </button><br>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                        <h4 class="modal-title" id="exampleModalLabel" style="color:green">Item {{ope[0]}}</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <p class="res">Item Name :</p><span class="uty">{{ope[0]}}</span><br>
+                                                        <p class="res">Description :</p><span class="uty">{{ope[1]}}</span><br>
+                                                        <p class="res">Price:</p><span class="uty">{{ope[2]}}</span><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                        
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                        </div>
+                                        
+                                                
+                                        {% endfor %}
+                                        </ol>
+                                        <a class="btn btn-success" href="/yolo/{{j}}">Add Item</a>
+                                        
+                                </div>
+                                {% endfor %}
+                        </ul>
+                </div>  
+                        </div>
+                </div>
+
+                
+        
         <br>
         <hr>
-        <ul>
-                {% for list in List %}
-                        <li style="color:yellow">{{list}}</li>
-                        <h3> Items</h3>
-                        <ul>
-                        {% for ope in D[list] %}
-                               <label> Item Name </label> <li style="color:aqua"> {{ope[0]}}</li>
-                               <label> Description</label><li style='color:beige'>{{ope[1]}}</li>
-                               <label> Price </label> <li style='color:dodgerblue'>{{ope[2]}}</li>
-                                
-                        {% endfor %}
-                        </ul>
-                        <a class="btn btn-success" href="/yolo/{{list}}">Add Item</a>
-                {% endfor %}
-        </ul>
-        
+
+        <div class="left" style="border-color:rgb(0, 0, 0);border-width:2px;border-style:solid;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAmgr9pqZRh8XhdKWxUPFBmoG2m5PKtZw2Q&usqp=CAU" height="600" width="350">
 </div>
 </div>
+</div>
+
 {% endblock %}
