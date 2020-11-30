@@ -286,12 +286,14 @@ def Static():
         if sess['gpt']!=None:
                 S=''
                 S=sess['gpt'].replace('code:','')
-                print(S)
                 
                      
                         
                 with open('templates/temp.html','w') as file:
+                        file.write("{% extends 'layout.html' %}")
+                        file.write("{% block content %}")
                         file.write(S)
+                        file.write("{% endblock %}")
                 
                 return render_template('temp.html',data=S)
         else:

@@ -58,7 +58,7 @@ class _BodyState extends State<Body> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
           child: Text(
-            "Women",
+            "Shop App",
             style: Theme.of(context)
                 .textTheme
                 .headline5
