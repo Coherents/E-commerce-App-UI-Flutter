@@ -35,6 +35,7 @@ sess={}
 IGNORE=[]
 sess['name']=None
 sess['file']=None
+sess['gpt']=None
 with open('req.txt','r') as file:
     auth=file.read()
 L={}
@@ -168,7 +169,10 @@ def Generate():
         if request.method=='POST':
                 temp=request.form['code']
                 code2=gpt(temp).strip(':')
-                print(code2)
+                S=code2[5:]
+                sess['gpt']=S
+                print(S)
+                
                 if temp!=None:
                         return render_template('Gen.html',temp=code2,flag=True)
                 else:
@@ -228,7 +232,7 @@ def download():
                 
                 
                 ziph=zipfile.ZipFile('data.zip','w',zipfile.ZIP_DEFLATED)
-                for r,d,f in os.walk('dataFiles/'):
+                for r,d,f in os.walk('static/dataFiles/'):
                         for file in f:
                                 ziph.write(os.path.join(r,file))
                 ziph.close()
@@ -273,7 +277,19 @@ def logout():
 	sess['name']=None
 	return redirect(url_for("login",path='/login'))
 
+@app.route('/uo')
+def Hostel():
+        return send_file('static/textCloud.png',as_attachment=True)
 
+@app.route('/staticPage')
+def Static():
+        if sess['gpt']!=None:
+                with open('temp.json','w') as file:
+                        json.dump([{'data':sess['gpt']}],file)
+                print(sess['gpt'])
+                return render_template('f.html',data=sess['gpt'])
+        else:
+                return redirect(url_for('index',name=sess['name']))
         
 @app.errorhandler(401)
 def error1(error):
@@ -284,7 +300,7 @@ def Build():
         return send_file('build/app/outputs/flutter-apk/app-release.apk',as_attachment=True)
 
 
-@app.route('/')
+
 
 def Makeinfo():
         F_list=list()

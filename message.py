@@ -16,6 +16,7 @@ def gen(text):
 
         # Display the generated image:
         # the matplotlib way:
+        fig=plt.figure(figsize=(20,20))
         plt.imshow(wordcloud, interpolation='bilinear')
         plt.axis("off")
-        plt.savefig('static/textCloud.png')
+        plt.savefig('static/textCloud.png',fontsize=50)

@@ -1,0 +1,23 @@
+{
+  "name": "e-commerce-app-ui-flutter",
+  "version": "1.0.0",
+  "description": "[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/abuanwar072/E-commerce-App-UI-Flutter)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coherents/E-commerce-App-UI-Flutter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coherents/E-commerce-App-UI-Flutter/issues"
+  },
+  "homepage": "https://github.com/Coherents/E-commerce-App-UI-Flutter#readme"
+}

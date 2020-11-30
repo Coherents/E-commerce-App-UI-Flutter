@@ -6,12 +6,14 @@
                         <label for='inputsm'><h2>Text</h2></label>
                         <input class='form-control input-sm' name='text'/><br>
                         </div>
-                        <button class='btn btn-success'>Analyze</button><br>
+                        <button class='btn btn-success'>Analyze</button><br><br>
                 </form>
                 {% if flag %}
                         <h2>WordCloud</h2>
-                        <img src={{link}} height="350" width="350">
+                        <img src={{link}} height="350" width="350"><br>
+                        <a class="btn btn-success" href='/uo'>Download</a>
                 {% endif %}
+                
         </div>
 
 
