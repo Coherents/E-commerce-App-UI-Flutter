@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="con">
+        <form action='/generate' method="POST">
+                <label><h2>Enter Description</h2></label>
+                <textarea class='form-control'  name='code' ro="200" col="300"></textarea><br>
+                <button type="submit"  class='btn btn-primary'>Generate Code</button><br>
+        </form>
+        
+        
+       {% if flag %}
+       <div style="border-color:rgb(20, 36, 36);border-width:2px;border-style:solid">
+        <h1>Code:</h1><br>
+        <h2 style="color:aquamarine" id="output">{{temp}}</h2>
+        <button class="btn btn-success" onclick="copy()">Copy</button>
+        </div>
+        {% endif %}
+        
+
+</div>
+{% endblock %}

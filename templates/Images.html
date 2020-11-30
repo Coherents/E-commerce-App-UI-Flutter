@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <div class='imgs' style="display: flex;">
+                {% for i in P %}
+                        <h2>{{i}}</h2>
+                        <img src={{D[i]}} height="400" width="400"><br><hr>
+                {% endfor %}
+                
+        </div>
+
+{% endblock %}

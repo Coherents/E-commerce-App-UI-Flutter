@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <div class="POL">
+                <form action="/analyseText" method="POST">
+                        <div class="form-group input-sm">
+                        <label for='inputsm'><h2>Text</h2></label>
+                        <input class='form-control input-sm' name='text'/><br>
+                        </div>
+                        <button class='btn btn-success'>Analyze</button><br>
+                </form>
+                {% if flag %}
+                        <h2>WordCloud</h2>
+                        <img src={{link}} height="350" width="350">
+                {% endif %}
+        </div>
+
+
+{% endblock %}

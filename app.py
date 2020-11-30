@@ -15,11 +15,12 @@ import inspect
 import multiprocessing as mp
 from werkzeug.utils import secure_filename
 from ProductInfo import getInfo
+from message import gen
 ########
 from stats import Stats
 from test import func
 #######
-
+from GPT3 import gpt
 from werkzeug.security import  generate_password_hash, check_password_hash
 from datetime import datetime
 import zipfile
@@ -161,6 +162,19 @@ def yolo(name=None):
                 return render_template('yolo.html',name=name,path='/')
         else:
                 return redirect(url_for('index',path='/'))
+        
+@app.route('/generate',methods=['GET','POST'])
+def Generate():
+        if request.method=='POST':
+                temp=request.form['code']
+                code2=gpt(temp).strip(':')
+                print(code2)
+                if temp!=None:
+                        return render_template('Gen.html',temp=code2,flag=True)
+                else:
+                        return redirect(url_for('index',name=sess['name']))
+        
+        return render_template('Gen.html',temp='',flag=False)
 
 @app.route('/qwert/<name>',methods=["GET","POST"])
 def fancy(name=None):
@@ -227,7 +241,31 @@ def download():
                 
 
 
+@app.route('/statShow')
+def StatShow():
+        f:bool =False
+        if 'dataFiles' in os.listdir(os.path.join(os.getcwd(),'static')):
+                f=True
+        if f:
+                path1={'Mean and stdev of Third feature':'static/dataFiles/Analysis/ID3.png',
+                'Distribution Plot':'static/dataFiles/Distribution/Distributionplot_3.png',
+                'Outlier in 10th feature':'static/dataFiles/Outliers/box_10.png',
+                'Heatmap':'static/datafiles/Heatmap.png',
+                'Volume Plot':'static/dataFiles/Volume.png'}
+                return render_template('Images.html',flag=f,P=path1.keys(),D=path1)
+        else:
+                return redirect(url_for('index',name=name))
 
+@app.route('/analyseText',methods=["GET","POST"])
+def Text():
+        if request.method=="POST":
+                data=request.form["text"]
+                print(data)
+                gen(data)
+                link='static/textCloud.png'
+                
+                return render_template('Text.html',flag=True,link=link)
+        return render_template('Text.html',flag=False)
 
 @app.route("/logout")
 def logout():
@@ -244,6 +282,9 @@ def error1(error):
 @app.route('/build')
 def Build():
         return send_file('build/app/outputs/flutter-apk/app-release.apk',as_attachment=True)
+
+
+@app.route('/')
 
 def Makeinfo():
         F_list=list()

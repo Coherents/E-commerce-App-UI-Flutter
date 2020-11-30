@@ -27,7 +27,7 @@
   </style>
 </head>
 <body style="text-align:center">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">BLogs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -48,6 +48,18 @@
         <a class="nav-link" href="/download">Select File For Analysis</a>
       </li>
       <li class="nav-item active">
+        <a class="nav-link" href="/generate">Generate Layout Code</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/read">Generate app layout contents</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/statShow">Plots</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/analyseText">Text Analysis</a>
+      </li>
+      <li class="nav-item active">
         <a class="nav-link" href="/logout">Logout</a>
       </li>
     </ul>
@@ -62,9 +74,20 @@
   </div>
 </div>
 <script type='text/javascript'>
-  document.querySelector('#delete').addEventListener('click',()=>{
-        
-  })
+  function myFunction() {
+ 
+  var copyText = document.getElementById("output");
+
+  
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+  
+  document.execCommand("copy");
+
+  
+  alert("Copied the text: " + copyText.value);
+}
 </script>
 
 
