@@ -284,12 +284,23 @@ def Hostel():
 @app.route('/staticPage')
 def Static():
         if sess['gpt']!=None:
-                with open('temp.json','w') as file:
-                        json.dump([{'data':sess['gpt']}],file)
-                print(sess['gpt'])
-                return render_template('f.html',data=sess['gpt'])
+                S=''
+                S=sess['gpt'].replace('code:','')
+                print(S)
+                
+                     
+                        
+                with open('templates/temp.html','w') as file:
+                        file.write(S)
+                
+                return render_template('temp.html',data=S)
         else:
                 return redirect(url_for('index',name=sess['name']))
+
+@app.route('/lay')
+def Lay():
+        return render_template('temp.html')
+
         
 @app.errorhandler(401)
 def error1(error):
