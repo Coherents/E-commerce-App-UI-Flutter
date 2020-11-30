@@ -5,6 +5,7 @@ from forms import *
 from flask_migrate import Migrate
 from flask_sqlalchemy import *
 import os
+import json
 import sqlite3
 from PIL import Image
 import cv2
@@ -26,19 +27,7 @@ import zipfile
 def Read_File():
      with open(name,'w') as file:
              file.write()
-def Makeinfo():
-        F_list=list()
-        x=1
-        for i in z.keys():
-                for j in z[i]:
-                        if len(j)==5:
-                                j.insert(0,str(x))
-                        x=x+1
-                        print(j)
-                        F_list.append(getInfo(j))
-        
-        fyl=open('assets/info/info.txt','w')
-        fyl.write(json.dumps(F_list))
+
 
 PATH=os.getcwd()
 sess={}
@@ -186,7 +175,7 @@ def fancy(name=None):
                 F.save(os.path.join(os.getcwd(),file))
                 
                 with open(file, "rb") as img_file:
-                        my_string = base64.b64encode(img_file.read())
+                        my_string = base64.b64encode(img_file.read()).decode('utf-8')
                         z[name].append([Item,Price,Des,name,my_string])
                 #print(my_string)
                 item_content=Category(name=Item,des=Des,price=Price,byt=my_string,usr=name)
@@ -254,8 +243,22 @@ def error1(error):
 
 @app.route('/build')
 def Build():
-        func()
-        return redirect(url_for('index',name=sess['name']))
+        return send_file('build/app/outputs/flutter-apk/app-release.apk',as_attachment=True)
+
+def Makeinfo():
+        F_list=list()
+        x=1
+        for i in z.keys():
+                for j in z[i]:
+                        if len(j)==5:
+                                j.insert(0,str(x))
+                        x=x+1
+                        print(j)
+                        F_list.append(getInfo(j))
+        print(F_list)
+        with open('assets/info/info.txt','w') as f:
+                json.dump(F_list,f)
+
 
 
 if __name__=='__main__':
